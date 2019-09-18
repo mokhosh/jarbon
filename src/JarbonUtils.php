@@ -14,11 +14,23 @@ class JarbonUtils
             $format = static::getDefaultFormat();
         }
 
-        return CalendarUtils::strftime($format, $carbon);
+        $date = CalendarUtils::strftime($format, $carbon);
+
+        return static::getShouldConvertNumbers() ? static::convertNumbers($date) : $date;
     }
 
     public static function getDefaultFormat()
     {
         return config('jarbon.default_format', 'Y-m-d H:i:s');
+    }
+
+    public static function getShouldConvertNumbers()
+    {
+        return config('jarbon.convert_numbers', false);
+    }
+
+    public static function convertNumbers(string $date)
+    {
+        return CalendarUtils::convertNumbers($date);
     }
 }

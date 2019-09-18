@@ -12,4 +12,9 @@ class Jarbon extends Carbon
     {
         return JarbonUtils::format($this);
     }
+
+    public function toString()
+    {
+        return JarbonUtils::format($this, '%T %A %e %B %Y');
+    }
 }
