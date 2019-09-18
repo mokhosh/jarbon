@@ -1,7 +1,7 @@
 # Jarbon (Jalali Carbon)
 ## A Jalali wrapper for Carbon to use with Laravel.
 
-The idea is to add Jalali functionality to Carbon instances without breaking changes.
+The idea is to add Jalali functionality to Carbon instances without introducing breaking changes.
 
 Warning: still in very early development stages.
 
