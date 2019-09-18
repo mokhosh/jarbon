@@ -8,6 +8,7 @@
 [![MIT License](https://img.shields.io/github/license/mokhosh/jarbon?style=flat-square)](https://github.com/mokhosh/jarbon/blob/master/LICENSE)
 
 The idea is to add Jalali functionality to Carbon instances without introducing breaking changes.
+Also I'm not in a hurry to exhaust all Carbon methods and features here. Just implementing what I need in my projects for now.
 
 Warning: still in very early development stages.
 
@@ -36,5 +37,8 @@ This will automatically output the Jalali date in your view:
 ## TODO
 
 - Add more methods for rendering date and time in Jalali
+- Cache a Jalali date inside the instance and track Carbon modification to regenerate it on the fly
 - Integrate with a client side Jalali datepicker for Jalali datetime inputs in forms
+- Helpers to play with Jalali and Gregorian dates
+- Unit tests?
 - what else?  
