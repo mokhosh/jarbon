@@ -1,0 +1,21 @@
+{
+    "name": "mokhosh/jarbon",
+    "description": "A Jalali wrapper for Carbon to use with Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohammad Sadeq Khoshnazar",
+            "email": "mskhoshnazar@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "nesbot/carbon": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mokhosh\\Jarbon\\": "src/"
+        }
+    },
+}
