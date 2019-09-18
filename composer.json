@@ -17,5 +17,12 @@
         "psr-4": {
             "Mokhosh\\Jarbon\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mokhosh\\Jarbon\\JarbonServiceProvider"
+            ]
+        }
     }
 }
