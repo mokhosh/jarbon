@@ -19,6 +19,11 @@ class JarbonUtils
         return static::getShouldConvertNumbers() ? static::convertNumbers($date) : $date;
     }
 
+    public static function convertNumbers(string $date)
+    {
+        return CalendarUtils::convertNumbers($date);
+    }
+
     public static function getDefaultFormat()
     {
         return config('jarbon.default_format', 'Y-m-d H:i:s');
@@ -27,10 +32,5 @@ class JarbonUtils
     public static function getShouldConvertNumbers()
     {
         return config('jarbon.convert_numbers', false);
-    }
-
-    public static function convertNumbers(string $date)
-    {
-        return CalendarUtils::convertNumbers($date);
     }
 }

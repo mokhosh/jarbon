@@ -37,6 +37,7 @@ This will automatically output the Jalali date in your view:
 ## TODO
 
 - Add more methods for rendering date and time in Jalali
+- fluent methods to override config on a single instance
 - Cache a Jalali date inside the instance and track Carbon modification to regenerate it on the fly
 - Integrate with a client side Jalali datepicker for Jalali datetime inputs in forms
 - Helpers to play with Jalali and Gregorian dates
