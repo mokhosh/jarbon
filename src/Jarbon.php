@@ -10,7 +10,7 @@ class Jarbon extends Carbon
 {
     public function __toString()
     {
-        return JarbonUtils::format($this);
+        return LaravelUtils::isInsideBlade() ? JarbonUtils::format($this) : parent::__toString();
     }
 
     public function toString()
