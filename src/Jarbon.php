@@ -26,4 +26,9 @@ class Jarbon extends Carbon
     {
         return JarbonUtils::format($this, '%e %B Y');
     }
+
+    public function toTimeString()
+    {
+        return JarbonUtils::format($this, '%T');
+    }
 }
