@@ -22,4 +22,8 @@ class Jarbon extends Carbon
     {
         return JarbonUtils::format($this, 'Y-m-d');
     }
+    public function toFormattedDateString()
+    {
+        return JarbonUtils::format($this, '%e %B Y');
+    }
 }
