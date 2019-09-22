@@ -10,8 +10,6 @@
 The idea is to add Jalali functionality to Carbon instances without introducing breaking changes.
 Also I'm not in a hurry to exhaust all Carbon methods and features here. Just implementing what I need in my projects for now.
 
-Warning: still in very early development stages.
-
 ## Installation
 
 Via composer
@@ -29,15 +27,36 @@ class User extends Model
 }
 ```
 
-This will automatically output the Jalali date in your view:
+Now you can output the Jalali date in your view:
 ```blade
-{{ $user->created_at }}
+{{ $user->created_at }} // 1398-06-27 12:36:20 <-- this uses 'default_format' config and will return Gregorian outside Blade
+{{ $user->created_at->toString() }} // 12:36:20 چهارشنبه 27 شهریور 1398
+{{ $user->created_at->toDateString() }} // 1398-06-27
+{{ $user->created_at->toFormattedDateString() }} // 27 شهریور 1398
+{{ $user->created_at->toTimeString() }} // 12:36:20 i know! but this will render in persian digits if you set the config
+{{ $user->created_at->toDateTimeString() }} // 1398-06-27 12:36:20 same as implicit toString in blade but you need to call this explicitly elsewhere
+{{ $user->created_at->toDayDateTimeString() }} // چهارشنبه 27 شهریور 1398 12:36 ب.ظ
+{{ $user->created_at->format($format) }} // see links below
+```
+
+- [PHP date format reference](https://www.php.net/manual/en/function.date.php)
+- [PHP strftime reference](https://www.php.net/manual/en/function.strftime.php)
+
+Change the config:
+```php
+return [
+
+    'default_format' => 'Y-m-d H:i:s', // to render $model->date differently
+    'convert_numbers' => false, // set to true to get dates like چهارشنبه ۲۷ شهریور ۱۳۹۸ ۱۲:۳۶ ب.ظ
+
+];
 ```
 
 ## TODO
 
-- Add more methods for rendering date and time in Jalali
-- fluent methods to override config on a single instance
+- Add jarbon() helper
+- override now() helper?
+- Fluent methods to override config on a single instance
 - Cache a Jalali date inside the instance and track Carbon modification to regenerate it on the fly
 - Integrate with a client side Jalali datepicker for Jalali datetime inputs in forms
 - Helpers to play with Jalali and Gregorian dates
