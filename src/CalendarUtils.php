@@ -832,7 +832,7 @@ class CalendarUtils
 
 
         if ($timestamp instanceof \DateTimeInterface) {
-            return $timestamp;
+            return new Carbon($timestamp);
         }
 
         if (is_string($timestamp)) {
