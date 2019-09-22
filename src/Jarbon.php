@@ -41,4 +41,9 @@ class Jarbon extends Carbon
     {
         return JarbonUtils::format($this, '%A %e %B %Y %I:%M %P');
     }
+
+    public function format($format)
+    {
+        return JarbonUtils::format($this, $format);
+    }
 }
