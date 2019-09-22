@@ -42,8 +42,17 @@ Now you can output the Jalali date in your view:
 - [PHP date format reference](https://www.php.net/manual/en/function.date.php)
 - [PHP strftime reference](https://www.php.net/manual/en/function.strftime.php)
 
-Change the config:
+Publish the config file:
+```
+php artisan vendor:publish --tag=config
+or in case I add more publishable stuff:
+php artisan vendor:publish --provider="Mokhosh\Jarbon\ServiceProvider"
+```
+
+Help yourself:
 ```php
+// config/jarbon.php
+
 return [
 
     'default_format' => 'Y-m-d H:i:s', // to render $model->date differently
