@@ -36,4 +36,9 @@ class Jarbon extends Carbon
     {
         return JarbonUtils::format($this, 'Y-m-d H:i:s');
     }
+
+    public function toDayDateTimeString()
+    {
+        return JarbonUtils::format($this, '%A %e %B %Y %I:%M %P');
+    }
 }
