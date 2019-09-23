@@ -66,6 +66,8 @@ return [
 - Add jarbon() helper
 - override now() helper?
 - Fluent methods to override config on a single instance
+- Add methods to access Gregorian calendar
+- Should we override default methods and create new methods for Gregorian? or just add methods for Jalali?
 - Cache a Jalali date inside the instance and track Carbon modification to regenerate it on the fly
 - Integrate with a client side Jalali datepicker for Jalali datetime inputs in forms
 - Helpers to play with Jalali and Gregorian dates
