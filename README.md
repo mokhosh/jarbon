@@ -1,6 +1,8 @@
 # Jarbon (Jalali Carbon)
 ## A Jalali wrapper for Carbon to use with Laravel.
 
+![Version](https://img.shields.io/github/v/tag/mokhosh/jarbon?style=flat-square)
+![Size](https://img.shields.io/github/languages/code-size/mokhosh/jarbon?color=%2366ee00&style=flat-square)
 [![Total Downloads](https://img.shields.io/packagist/dt/mokhosh/jarbon.svg?style=flat-square)](https://packagist.org/packages/mokhosh/jarbon)
 [![Issues](https://img.shields.io/github/issues/mokhosh/jarbon?style=flat-square)](https://github.com/mokhosh/jarbon/issues)
 [![Stars](https://img.shields.io/github/stars/mokhosh/jarbon?style=flat-square)](https://github.com/mokhosh/jarbon/stargazers)
