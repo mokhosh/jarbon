@@ -8,41 +8,41 @@ use Carbon\Carbon;
 
 class Jarbon extends Carbon
 {
-    public function __toString()
+    public function toDefaultString()
     {
-        return LaravelUtils::isInsideBlade() ? JarbonUtils::format($this) : parent::__toString();
+        return JarbonUtils::format($this);
     }
 
-    public function toString()
+    public function toJString()
     {
         return JarbonUtils::format($this, '%T %A %e %B %Y');
     }
 
-    public function toDateString()
+    public function toJDateString()
     {
         return JarbonUtils::format($this, 'Y-m-d');
     }
-    public function toFormattedDateString()
+    public function toJFormattedDateString()
     {
         return JarbonUtils::format($this, '%e %B Y');
     }
 
-    public function toTimeString()
+    public function toJTimeString()
     {
         return JarbonUtils::format($this, '%T');
     }
 
-    public function toDateTimeString()
+    public function toJDateTimeString()
     {
         return JarbonUtils::format($this, 'Y-m-d H:i:s');
     }
 
-    public function toDayDateTimeString()
+    public function toJDayDateTimeString()
     {
         return JarbonUtils::format($this, '%A %e %B %Y %I:%M %P');
     }
 
-    public function format($format)
+    public function jormat($format)
     {
         return JarbonUtils::format($this, $format);
     }
