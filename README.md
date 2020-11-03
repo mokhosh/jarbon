@@ -65,6 +65,7 @@ return [
 
 ## TODO
 
+- Use macros instead
 - Add jarbon() helper
 - override now() helper?
 - Fluent methods to override config on a single instance
