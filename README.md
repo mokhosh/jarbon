@@ -20,8 +20,12 @@ $ composer require mokhosh/jarbon
 ```
 
 ## Usage
+You can simply convert *any* `Carbon` instance to Jalali like this:
+```php
+$user->created_at->jormat($format) // see links below to know more about date formats
+```
 
-This will swap Jarbon for Carbon in your model:
+If you wanna use the format helper methods you can do this too, but it's optional:
 ```php
 class User extends Model
 {
@@ -29,16 +33,14 @@ class User extends Model
 }
 ```
 
-Now you can output the Jalali date in your view:
-```blade
-{{ $user->created_at }} // 1398-06-27 12:36:20 <-- this uses 'default_format' config and will return Gregorian outside Blade
-{{ $user->created_at->toString() }} // 12:36:20 چهارشنبه 27 شهریور 1398
-{{ $user->created_at->toDateString() }} // 1398-06-27
-{{ $user->created_at->toFormattedDateString() }} // 27 شهریور 1398
-{{ $user->created_at->toTimeString() }} // 12:36:20 i know! but this will render in persian digits if you set the config
-{{ $user->created_at->toDateTimeString() }} // 1398-06-27 12:36:20 same as implicit toString in blade but you need to call this explicitly elsewhere
-{{ $user->created_at->toDayDateTimeString() }} // چهارشنبه 27 شهریور 1398 12:36 ب.ظ
-{{ $user->created_at->format($format) }} // see links below
+Now you can output the Jalali date like this:
+```php
+$user->created_at->toJString(); // 12:36:20 چهارشنبه 27 شهریور 1398
+$user->created_at->toJDateString(); // 1398-06-27
+$user->created_at->toJFormattedDateString(); // 27 شهریور 1398
+$user->created_at->toJTimeString(); // 12:36:20 i know! but this will render in persian digits if you set the config
+$user->created_at->toJDateTimeString(); // 1398-06-27 12:36:20 same as implicit toString in blade but you need to call this explicitly elsewhere
+$user->created_at->toJDayDateTimeString(); // چهارشنبه 27 شهریور 1398 12:36 ب.ظ
 ```
 
 - [PHP date format reference](https://www.php.net/manual/en/function.date.php)
@@ -48,7 +50,7 @@ Publish the config file:
 ```
 php artisan vendor:publish --tag=config
 or in case I add more publishable stuff:
-php artisan vendor:publish --provider="Mokhosh\Jarbon\ServiceProvider"
+php artisan vendor:publish --provider="Mokhosh\Jarbon\JarbonServiceProvider"
 ```
 
 Help yourself:
@@ -57,7 +59,7 @@ Help yourself:
 
 return [
 
-    'default_format' => 'Y-m-d H:i:s', // to render $model->date differently
+    'default_format' => 'Y-m-d H:i:s', // to render $carbon->jormat() differently
     'convert_numbers' => false, // set to true to get dates like چهارشنبه ۲۷ شهریور ۱۳۹۸ ۱۲:۳۶ ب.ظ
 
 ];
@@ -65,12 +67,8 @@ return [
 
 ## TODO
 
-- Use macros instead
 - Add jarbon() helper
-- override now() helper?
 - Fluent methods to override config on a single instance
-- Add methods to access Gregorian calendar
-- Should we override default methods and create new methods for Gregorian? or just add methods for Jalali?
 - Cache a Jalali date inside the instance and track Carbon modification to regenerate it on the fly
 - Integrate with a client side Jalali datepicker for Jalali datetime inputs in forms
 - Helpers to play with Jalali and Gregorian dates
