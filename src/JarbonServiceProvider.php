@@ -3,6 +3,7 @@
 namespace Mokhosh\Jarbon;
 
 use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
 
 class JarbonServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,8 @@ class JarbonServiceProvider extends ServiceProvider
 
     public function register()
     {
-
+        Carbon::macro('jormat', function ($format = null) {
+            return JarbonUtils::format($this, $format);
+        });
     }
 }
