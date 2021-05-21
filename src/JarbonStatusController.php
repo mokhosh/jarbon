@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mokhosh\Jarbon;
-
 
 use Illuminate\Http\Request;
 
